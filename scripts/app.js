@@ -8,7 +8,11 @@
 
   function FoundItemsDirective() {
     var ddo = {
-      templateUrl: 'foundItems.html',
+        template: "<h1>Result</h1>"
+            + "<div ng-if='list.isEmpty()'>Nothing found</div>"
+            + "<ul><li ng-repeat='item in list.found'>"
+            + "<b>{{item.name}}, {{item.short_name}}, {{item.description}}</b><br />"
+            + " <button ng-click='list.onRemove({ index: $index });'>Don't want this one!</button></li></ul>",
       scope: {
         found: '<',
         onRemove: '&'
@@ -81,3 +85,4 @@
 
 }
 )();
+
